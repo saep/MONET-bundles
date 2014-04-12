@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<algorithm
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="bundle-description.xsd">
+    <name>LabelCorrecting</name>
+    <description>
+        The LabelCorrecting Algorithm presented by Skriver and Andersen.
+    </description>
+	<parameters>
+		<parameter name="MERGE_MODE">
+            <description>
+                Boolean that indicates if the intelligent merge method or the simple comparison method is used for merging labelsets.
+            </description>
+            <boolean default="true"/>
+        </parameter>
+	</parameters>
+</algorithm>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<graph
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="bundle-description.xsd">
+    <name>MonetGraph</name>
+    <description>
+        The MonetGraph-Format, suitable for simple SSSP- and MST instances.
+    </description>
+	<instances>
+        <instance value="SSSP">
+			<parameter name="startNodeid">
+                <description>
+                    Source of the single source shortest path graph.
+                </description>
+                <integer default="-1"/>
+			</parameter>
+			<parameter name="endNodeid">
+                <description>
+                    Destination of the single source shortest path graph.
+                </description>
+                <integer default="-1"/>
+			</parameter>
+			<parameter name="directed">
+                <description>
+                    Boolean that indicates if the graph is directed.
+                </description>
+                <boolean default="true"/>
+			</parameter>
+		</instance>
+	 </instances>
+</graph>

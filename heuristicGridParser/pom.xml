@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>bundle</packaging>
+	<groupId>monet</groupId>
+	<artifactId>heuristicGridParser</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>${project.artifactId}</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>5.0.0</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>monet</groupId>
+			<artifactId>worker</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<optional>false</optional>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>monet</groupId>
+			<artifactId>graph</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>bundle</type>
+			<optional>true</optional>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4.0,)</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>tests</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- BUNDLE CONFIGURATION HERE -->
+						<Bundle-Name>${project.name}</Bundle-Name>
+						<Bundle-Activator>com.github.monet.parser.Activator</Bundle-Activator>
+						<Import-Package>
+							org.osgi.framework,
+							com.github.monet.interfaces,
+							com.github.monet.worker,
+							com.github.monet.graph,
+							com.github.monet.graph.interfaces,
+							com.github.monet.graph.weighted,
+							org.apache.logging.log4j
+						</Import-Package>
+						<Type>parser</Type>
+						<Export-Package>
+							com.github.monet.parser
+						</Export-Package>
+						<Bundle-ClassPath>${maven-dependencies}</Bundle-ClassPath>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<algorithm
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="bundle-description.xsd">
+    <name>Namoa</name>
+    <description>
+        The algorithm from "A New Approach to Multiobjective A* Search" by Mandow and Perez de la Cruz
+    </description>
+	<parameters>
+	</parameters>
+</algorithm>

@@ -1,0 +1,169 @@
+Short Logs:
+
+Using Random-Seed: 1.
+Start: Node 5, End: Node 8
+Node 5
+Node 6
+Node 2
+Node 1
+Node 4
+Node 8
+Note: Given input graph not complete! 33 new edges added. The graph has 10 Nodes and 45 Edges. There are 100000000 possible spanning trees.
+Using Random-Seed: 156423.
+Start: Node 1, End: Node 5
+Node Node 1
+Node Node 3
+Node Node 4
+Node Node 5
+Fitness: 100.0
+Using Random-Seed: 37178743.
+ST Edges:
+{Node 4, Node 8}
+{Node 1, Node 2}
+{Node 0, Node 4}
+{Node 5, Node 9}
+{Node 2, Node 5}
+{Node 5, Node 6}
+{Node 8, Node 9}
+{Node 4, Node 7}
+{Node 0, Node 3}
+Available Operators: [Simple-Terminator, Pruefer-EA, SMS-EMOA, SPEA-2, RandomSearch, RandomWalk, Pruefer-Encoding, Pruefer-Creator, Pruefer-Evaluator-2, Uniform-Mutation, Pruefer-Recombinator, Pruefer-GPM, Roulette-Wheel-Selection, Tournament-Selection, SSSP-Encoding, SPEA2-Creator, SPEA2-Evaluator, SPEA2-Mutator, SPEA2-Recombinator, SPEA2-GPM, MST-Encoding, MST-Creator, MST-Mutator, MST-Recombinator, MST-GPM].
+Using Random-Seed: 3.
+Selecting random Start 'Node 34' and End 'Node 10'.
+Parameter 'preset' not found. Using default value ''.
+Disabling safe-mode for given graph.
+Parameter 'autoGenerateSeed' not found. Using default value 'false'.
+Parameter autoGenerateSeed is not set to true, but no seed is specified!
+Using Random-Seed: 3.
+Parameter 'makeGraphComplete' not found. Using default value 'false'.
+Evaluating creatorName parameter.
+Parameter 'createInitialPopFromST' not found. Using default value 'true'.
+Evaluating mutatorName parameter.
+Parameter 'mutatorProbability' not found. Using default value '0.5'.
+Evaluating recombinatorName parameter.
+Parameter 'recombinatorProbability' not found. Using default value '0.5'.
+Evaluating mappingName parameter.
+Evaluating evaluatorName parameter.
+Evaluating selectorName parameter.
+Evaluating terminatorName parameter.
+Parameter 'constantFitnessGenLimit' not found. Using default value '-1'.
+Parameter 'maxDegree' not found. Using default value '0'.
+Configurion sucessful.
+Algorithm Configuration:
+  - Algorithm: Algorithm Pruefer-EA
+  - Problem: 50 Nodes, 207 Edges, 3 Dimensions
+  - Start-Node: Node 34, Endnode Node 10
+  - Name of the Configuration: testPrueferEA
+
+Starting execution of Pruefer-EA.
+Creating initial population...
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Initial population has been created.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Starting fitness-evaluation for 500 individuals...
+Finished fitness-evaluation.
+Termination criterion: Last generation reached.
+Execution of Pruefer-EA finished!
+Number of created Individuals: 15806.
+Size of nondominated set: 21.
+Cannot measure results. Meter is null in EvolutionaryAlgorithm!
+Using Random-Seed: 1.
+Selecting random Start 'Node 5' and End 'Node 8'.
+Parameter 'preset' not found. Using default value ''.
+Disabling safe-mode for given graph.
+Parameter 'autoGenerateSeed' not found. Using default value 'false'.
+Parameter autoGenerateSeed is not set to true, but no seed is specified!
+Using Random-Seed: 1.
+Parameter 'makeGraphComplete' not found. Using default value 'false'.
+Evaluating creatorName parameter.
+Error! There's no way from given starting node Node 5 to Node 8!
+Error while configurating SSSPEncoding. No path between start and end!
+Error! Operator SSSP-Encoding was not configured successful! Returning null.
+Error! Operator SPEA2-Creator was not configured successful! Returning null.
+Cannot execute algorithm because the configuration failed or wasn't executed.
+Using Random-Seed: 3.
+Selecting random Start 'Node 4' and End 'Node 0'.
+Parameter 'preset' not found. Using default value ''.
+Disabling safe-mode for given graph.
+Parameter 'autoGenerateSeed' not found. Using default value 'false'.
+Parameter autoGenerateSeed is not set to true, but no seed is specified!
+Using Random-Seed: 3.
+Parameter 'makeGraphComplete' not found. Using default value 'false'.
+Evaluating creatorName parameter.
+Parameter 'createInitialPopFromST' not found. Using default value 'true'.
+Evaluating mutatorName parameter.
+Parameter 'mutatorProbability' not found. Using default value '0.5'.
+Evaluating recombinatorName parameter.
+Parameter 'recombinatorProbability' not found. Using default value '0.5'.
+Evaluating mappingName parameter.
+Parameter 'evaluatorName' not found. Using default value 'null'.
+Parameter 'selectorName' not found. Using default value 'null'.
+Evaluating terminatorName parameter.
+Parameter 'fitnessMaximization' not found. Using default value 'false'.
+Parameter 'constantFitnessGenLimit' not found. Using default value '-1'.
+Parameter 'maxDegree' not found. Using default value '0'.
+Configurion sucessful.
+Algorithm Configuration:
+  - Algorithm: Algorithm SMS-EMOA
+  - Problem: 10 Nodes, 12 Edges, 2 Dimensions
+  - Start-Node: Node 4, Endnode Node 0
+  - Name of the Configuration: testSMSEMOA
+
+Starting execution of SMS-EMOA.
+Creating initial population...
+Initial population has been created.
+Termination criterion: Last generation reached.
+Execution of SMS-EMOA finished!
+Number of created Individuals: 16328.
+Size of nondominated set: 3.
+Cannot measure results. Meter is null in EvolutionaryAlgorithm!
+Using Random-Seed: 37128743.
+ST Edges:
+{Node 0, Node 1}
+{Node 1, Node 4}
+{Node 4, Node 7}
+{Node 1, Node 2}
+{Node 0, Node 3}
+{Node 2, Node 5}
+{Node 2, Node 6}
+{Node 8, Node 9}
+{Node 5, Node 9}
+Operator Test:
+Genotypes of created Individuals:
+  [8, 4, 3, 9, 7, 9, 6, 6]
+  [3, 1, 2, 8, 5, 2, 4, 3]
+  [8, 4, 3, 9, 7, 9, 6, 6]
+  [8, 4, 3, 9, 7, 9, 6, 6]
+Selected Individuals:
+Individual 16343 (Fitness: 20.0).
+  Genotype: [3, 1, 2, 8, 5, 2, 4, 3]
+  Objective-Values: NULL
+  Phenotype: NULL
+Individual 16342 (Fitness: 10.0).
+  Genotype: [8, 4, 3, 9, 7, 9, 6, 6]
+  Objective-Values: NULL
+  Phenotype: NULL
+
+
+
+

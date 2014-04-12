@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<algorithm
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="monet:bundle-description">
+	<name>BMST two-phase algorithm</name>
+	<description>
+		First phase: Dichotomic approach
+        Second phase: k-best or Branch&amp;Bound
+	</description>
+	<parameters>
+        <parameter name="weightAnnotationName">
+            <description>
+                Name of weight annotation
+            </description>
+            <string default="edges" />
+        </parameter>
+		<parameter name="secondPhase">
+			<description>
+				Second phase
+			</description>
+			<choices>
+				<choice value="kbest" />
+				<choice value="branchbound" />
+			</choices>
+		</parameter>
+	</parameters>
+</algorithm>

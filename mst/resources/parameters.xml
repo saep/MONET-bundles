@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<algorithm
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="monet:bundle-description">
+	<name>MST Library</name>
+	<description>
+		MST-related algorithms and data structures
+	</description>
+	<parameters>
+        
+	</parameters>
+</algorithm>

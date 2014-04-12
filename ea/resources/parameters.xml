@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<algorithm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="bundle-description.xsd">
+	<name>Evolutionary Algorithm Configurator</name>
+	<description>Generic EA-Configurator</description>
+	<parameters>
+		<parameter name="preset">
+			<description>Preset to use. Each preset sets valid parameters for a
+				'standard' execution of an algorithm.</description>
+			<choices>
+				<choice value="Custom">
+					<parameter name="eaName">
+						<description>Name of the EA to execute.</description>
+						<choices>
+							<choice value="Pruefer-EA">
+								<parameter name="popSize">
+									<description>Size of the population.</description>
+									<boundedinteger default="100" max="1000000" min="1" />
+								</parameter>
+								<parameter name="offspringSize">
+									<description>Number of offsprings to create in one generation.</description>
+									<boundedinteger default="100" min="1" />
+								</parameter>
+								<parameter name="creatorName">
+									<description>Name of the creation strategy to use. This
+										implicitly specifies the genotype.</description>
+									<choices>
+										<choice value="MST-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="MST-Mutator">
+													<choice value="MST-Mutator">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="MST-Recombinator">
+													<choice value="MST-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="MST-GPM">
+													<choice value="MST-GPM">
+														<parameter name="evaluatorName">
+															<description>Name of the evaluation strategy to use. The
+																selected operator automatically defines whether the
+																fitness is to be minimized or maximized.</description>
+															<choices default="Pruefer-Evaluator-2">
+																<choice value="Pruefer-Evaluator-2" />
+															</choices>
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+										</choice>
+										<choice value="Pruefer-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="Uniform-Mutation">
+													<choice value="Uniform-Mutation">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="Pruefer-Recombinator">
+													<choice value="Pruefer-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="Pruefer-GPM">
+													<choice value="Pruefer-GPM">
+														<parameter name="evaluatorName">
+															<description>Name of the evaluation strategy to use. The
+																selected operator automatically defines whether the
+																fitness is to be minimized or maximized.</description>
+															<choices default="Pruefer-Evaluator-2">
+																<choice value="Pruefer-Evaluator-2" />
+															</choices>
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="createInitialPopFromST">
+												<description>Creation of the initial population using random
+													spanning trees. If it is false, random pruefer numbers are
+													generated.</description>
+												<boolean default="true" />
+											</parameter>
+										</choice>
+										<choice value="SPEA2-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="SPEA2-Mutator">
+													<choice value="SPEA2-Mutator">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="SPEA2-Recombinator">
+													<choice value="SPEA2-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="SPEA2-GPM">
+													<choice value="SPEA2-GPM">
+														<parameter name="evaluatorName">
+															<description>Name of the evaluation strategy to use. The
+																selected operator automatically defines whether the
+																fitness is to be minimized or maximized.</description>
+															<choices default="SPEA2-Evaluator">
+																<choice value="SPEA2-Evaluator" />
+															</choices>
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+								<parameter name="selectorName">
+									<description>Name of the selection strategy to use. The
+										selected evaluator will automatically set a parameter for
+										fitness minimization or maximization.</description>
+									<choices>
+										<choice value="Roulette-Wheel-Selection" />
+										<choice value="Tournament-Selection">
+											<parameter name="numTournamentRounds">
+												<description>Number of rounds in a selection tournament.</description>
+												<boundedinteger default="1" max="1000000"
+													min="1" />
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+								<parameter name="terminatorName">
+									<description>Name of the termination strategy to use.</description>
+									<choices default="Simple-Terminator">
+										<choice value="Simple-Terminator">
+											<parameter name="maxGenerations">
+												<description>Maximum number of generations.</description>
+												<boundedinteger default="100" max="1000000"
+													min="1" />
+											</parameter>
+											<parameter name="maxTime">
+												<description>Time limit for the execution (in ms).</description>
+												<integer default="10000" />
+											</parameter>
+											<parameter name="fitnessThreshold">
+												<description>Fitness threshold. The algorithm will exit if
+													and when a better fitness is reached.</description>
+												<decimal default="0" />
+											</parameter>
+											<parameter name="constantFitnessGenLimit">
+												<description>Terminate after X generations of constant
+													fitness (constant sum of all fitness values of the given
+													generation). Use a value of 0 or less to deactivate this
+													parameter.</description>
+												<integer default="-1" />
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+							</choice>
+							<choice value="SMS-EMOA">
+								<parameter name="popSize">
+									<description>Size of the population.</description>
+									<boundedinteger default="100" max="1000000" min="1" />
+								</parameter>
+								<parameter name="creatorName">
+									<description>Name of the creation strategy to use. This
+										implicitly specifies the genotype.</description>
+									<choices>
+										<choice value="MST-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="MST-Mutator">
+													<choice value="MST-Mutator">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="MST-Recombinator">
+													<choice value="MST-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="MST-GPM">
+													<choice value="MST-GPM" />
+												</choices>
+											</parameter>
+										</choice>
+										<choice value="Pruefer-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="Uniform-Mutation">
+													<choice value="Uniform-Mutation">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="Pruefer-Recombinator">
+													<choice value="Pruefer-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="Pruefer-GPM">
+													<choice value="Pruefer-GPM" />
+												</choices>
+											</parameter>
+											<parameter name="createInitialPopFromST">
+												<description>Creation of the initial population using random
+													spanning trees. If it is false, random pruefer numbers are
+													generated.</description>
+												<boolean default="true" />
+											</parameter>
+										</choice>
+										<choice value="SPEA2-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="SPEA2-Mutator">
+													<choice value="SPEA2-Mutator">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="SPEA2-Recombinator">
+													<choice value="SPEA2-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="SPEA2-GPM">
+													<choice value="SPEA2-GPM" />
+												</choices>
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+								<parameter name="terminatorName">
+									<description>Name of the termination strategy to use.</description>
+									<choices default="Simple-Terminator">
+										<choice value="Simple-Terminator">
+											<parameter name="maxGenerations">
+												<description>Maximum number of generations.</description>
+												<boundedinteger default="100" max="1000000"
+													min="1" />
+											</parameter>
+											<parameter name="maxTime">
+												<description>Time limit for the execution (in ms).</description>
+												<integer default="10000" />
+											</parameter>
+											<parameter name="fitnessThreshold">
+												<description>Fitness threshold. The algorithm will exit if
+													and when a better fitness is reached.</description>
+												<decimal default="0" />
+											</parameter>
+											<parameter name="constantFitnessGenLimit">
+												<description>Terminate after X generations of constant
+													fitness (constant sum of all fitness values of the given
+													generation). Use a value of 0 or less to deactivate this
+													parameter.</description>
+												<integer default="-1" />
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+							</choice>
+							<choice value="SPEA-2">
+								<parameter name="popSize">
+									<description>Size of the population.</description>
+									<boundedinteger default="100" max="1000000" min="1" />
+								</parameter>
+								<parameter name="archiveSize">
+									<description>Size of the archive.</description>
+									<boundedinteger default="100" max="1000000" min="1" />
+								</parameter>
+								<parameter name="creatorName">
+									<description>Name of the creation strategy to use. This
+										implicitly specifies the genotype.</description>
+									<choices>
+										<choice value="MST-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="MST-Mutator">
+													<choice value="MST-Mutator">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="MST-Recombinator">
+													<choice value="MST-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="MST-GPM">
+													<choice value="MST-GPM">
+														<parameter name="evaluatorName">
+															<description>Name of the evaluation strategy to use. The
+																selected operator automatically defines whether the
+																fitness is to be minimized or maximized.</description>
+															<choices default="Pruefer-Evaluator-2">
+																<choice value="Pruefer-Evaluator-2" />
+															</choices>
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+										</choice>
+										<choice value="Pruefer-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="Uniform-Mutation">
+													<choice value="Uniform-Mutation">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="Pruefer-Recombinator">
+													<choice value="Pruefer-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="Pruefer-GPM">
+													<choice value="Pruefer-GPM">
+														<parameter name="evaluatorName">
+															<description>Name of the evaluation strategy to use. The
+																selected operator automatically defines whether the
+																fitness is to be minimized or maximized.</description>
+															<choices default="Pruefer-Evaluator-2">
+																<choice value="Pruefer-Evaluator-2" />
+															</choices>
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="createInitialPopFromST">
+												<description>Creation of the initial population using random
+													spanning trees. If it is false, random pruefer numbers are
+													generated.</description>
+												<boolean default="true" />
+											</parameter>
+										</choice>
+										<choice value="SPEA2-Creator">
+											<parameter name="mutatorName">
+												<description>Name of the mutation strategy to use. Note that
+													the selected operator has to be compatible with genotype
+													that is used (The genotype is implicitly defined by
+													selecting a creator Algorithm)!</description>
+												<choices default="SPEA2-Mutator">
+													<choice value="SPEA2-Mutator">
+														<parameter name="mutatorProbability">
+															<description>Mutation probability.</description>
+															<boundeddecimal default="0.05" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="recombinatorName">
+												<description>Name of the recombination strategy to use. Note
+													that the selected operator has to be compatible with
+													genotype that is used (The genotype is implicitly defined
+													by selecting a creator Algorithm)!</description>
+												<choices default="SPEA2-Recombinator">
+													<choice value="SPEA2-Recombinator">
+														<parameter name="recombinatorProbability">
+															<description>Recombination probability.</description>
+															<boundeddecimal default="0.50" max="1"
+																min="0" />
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+											<parameter name="mappingName">
+												<description>Name of the Genotype-Phenotype-Mapping (GPM)
+													strategy to use. This implicitly specifies the phenotype.
+													Note that the selected operator has to support the selected
+													genotype (The genotype is implicitly defined by selecting a
+													creator Algorithm)!</description>
+												<choices default="SPEA2-GPM">
+													<choice value="SPEA2-GPM">
+														<parameter name="evaluatorName">
+															<description>Name of the evaluation strategy to use. The
+																selected operator automatically defines whether the
+																fitness is to be minimized or maximized.</description>
+															<choices default="SPEA2-Evaluator">
+																<choice value="SPEA2-Evaluator" />
+															</choices>
+														</parameter>
+													</choice>
+												</choices>
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+								<parameter name="selectorName">
+									<description>Name of the selection strategy to use. The
+										selected evaluator will automatically set a parameter for
+										fitness minimization or maximization.</description>
+									<choices>
+										<choice value="Roulette-Wheel-Selection" />
+										<choice value="Tournament-Selection">
+											<parameter name="numTournamentRounds">
+												<description>Number of rounds in a selection tournament.</description>
+												<boundedinteger default="1" max="1000000"
+													min="1" />
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+								<parameter name="terminatorName">
+									<description>Name of the termination strategy to use.</description>
+									<choices default="Simple-Terminator">
+										<choice value="Simple-Terminator">
+											<parameter name="maxGenerations">
+												<description>Maximum number of generations.</description>
+												<boundedinteger default="100" max="1000000"
+													min="1" />
+											</parameter>
+											<parameter name="maxTime">
+												<description>Time limit for the execution (in ms).</description>
+												<integer default="10000" />
+											</parameter>
+											<parameter name="fitnessThreshold">
+												<description>Fitness threshold. The algorithm will exit if
+													and when a better fitness is reached.</description>
+												<decimal default="0" />
+											</parameter>
+											<parameter name="constantFitnessGenLimit">
+												<description>Terminate after X generations of constant
+													fitness (constant sum of all fitness values of the given
+													generation). Use a value of 0 or less to deactivate this
+													parameter.</description>
+												<integer default="-1" />
+											</parameter>
+										</choice>
+									</choices>
+								</parameter>
+							</choice>
+						</choices>
+					</parameter>
+				</choice>
+				<choice value="PrueferMST-PrueferEA" />
+				<choice value="DirectMST-PrueferEA" />
+				<choice value="DirectMST-SMSEMOA" />
+				<choice value="DirectMST-SPEA2" />
+				<choice value="DirectSSSP-PrueferEA" />
+				<choice value="DirectSSSP-SMSEMOA" />
+				<choice value="DirectSSSP-SPEA2" />
+			</choices>
+		</parameter>
+		<parameter name="autoGenerateSeed">
+			<description>If this is set to yes, a new random seed will be
+				generated by the algorithm. Otherwise you can specify a random seed
+				to use.</description>
+			<choices default="Yes">
+				<choice value="Yes" />
+				<choice value="No">
+					<parameter name="seed">
+						<description>Random seed in order to reproduce results. If this
+							parameter is not set, a new random seed will be created and
+							logged.</description>
+						<integer default="1" />
+					</parameter>
+				</choice>
+			</choices>
+		</parameter>
+		<parameter name="makeGraphComplete">
+			<description>If this parameter is true then all missing edges will be
+				added with infinite weights. Use this if the selected algorithms or
+				operators are supposed to work on a complete graph (e.g.
+				Pruefer-Encoding).</description>
+			<boolean default="false" />
+		</parameter>
+	</parameters>
+</algorithm>
